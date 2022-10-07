@@ -6,7 +6,7 @@ app.use(express.json());
 //Importar rutas
 const productos=require("./routes/products")
 
-// Ruta del navegador - puede cambiar de acuerdo al ciclo
+//Ruta del navegador (esta cambia)
 app.use('/api',productos)
 
 module.exports=app
