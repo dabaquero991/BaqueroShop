@@ -2,20 +2,24 @@ import './App.css';
 import React from 'react'
 import Header from './components/layout/Header'
 import { Footer } from './components/layout/Footer';
+import { Home } from './components/Home';
+// Router traido de react-router-dom (no confundirlo con express)
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 function App() {
   return (
-    <div className="App">
+    <Router>
+      <div className="App">
         <Header/>
-        <center>Contenido aquí</center>
-        <center>Contenido aquí</center>
-        <center>Contenido aquí</center>
-        <center>Contenido aquí</center>
-        <center>Contenido aquí</center>
-        <center>Contenido aquí</center>
-        <center>Contenido aquí</center>
+        <div className='container container-fluid'>
+          <Routes>
+            <Route path='/' element={<Home/>}/>
+            <Route path='/Home' element={<Home/>}/>
+          </Routes>
+        </div>
         <Footer/>
     </div>
+    </Router>
   );
 }
 
