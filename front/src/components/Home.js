@@ -1,100 +1,64 @@
 import React, { Fragment, useEffect } from 'react'
 import MetaData from './layout/MetaData'
-import {useDispatch} from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { getProducts } from '../actions/productActions'
+import { Link } from 'react-router-dom'
+//import { useAlert } from 'react-alert'
+
 
 export const Home = () => {
+    const { loading, productos, error} = useSelector(state => state.products)
+//    const alert = useAlert();
+
 
     const dispatch = useDispatch();
-    useEffect(()=>{
-         dispatch(getProducts());
+    useEffect(() => {
+//        if (error){
+//            return alert.error
+//        }
+
+        dispatch(getProducts());
+//        alert.success("OK")
+//        alert.error("FAIL")
+        
     }, [dispatch])
 
     return (
         <Fragment>
-            <MetaData title="Encuentra las mejores ofertas"></MetaData>
-            <h1 id="encabezado_productos">Ultimos Productos</h1>
-            <section id="productos" className='container mt-5'>
-                <div className='row'>
-                    {/*Producto 1*/}
-                    <div className='col-sm-12 col-md-6 col-lg-3 my-3'>
-                        <div className='card p-3 rounded'>
-                            <img className='card-img-top mx-auto' src='./images/celular.jpeg' alt="iPhone 14 ProMax"></img>
-                            <div className='card-body d-flex flex-column'>
-                                <h5 id="titulo_producto"><a href='http://localhost:3000'>iPhone 14 ProMax 256 GB </a></h5>
-                                <div className='rating mt-auto'>
-                                    <div className='rating-outer'>
-                                        <div className='rating-inner'></div>
+            {loading ? <i class="fa fa-refresh fa-spin fa-3x fa-fw"></i> : (
+                <Fragment>
+                    <MetaData title="Encuentra las mejores ofertas"></MetaData>
+                    <h1 id="encabezado_productos">Ultimos Productos</h1>
+                    <section id="productos" className='container mt-5'>
+                        <div className='row'>
+
+                            {productos && productos.map(producto => (
+
+                                <div key={producto._id} className='col-sm-12 col-md-6 col-lg-3 my-3'>
+                                    <div className='card p-3 rounded'>
+                                        <img className='card-img-top mx-auto' src={producto.imagen[0].url} alt={producto.imagen[0].public_id}></img>
+                                        <div className='card-body d-flex flex-column'>
+                                        <h5 id="titulo_producto"><Link to={`/producto/${producto._id}`}>{producto.nombre}</Link></h5>
+                                            <div className='rating mt-auto'>
+                                                <div className='rating-outer'>
+                                                    <div className='rating-inner' style={{ width: `${(producto.calificacion / 5) * 100}%` }} ></div>
+                                                </div>
+                                                <span id="No_de_opiniones"> {producto.numCalificaciones} Reviews </span>
+                                            </div>
+                                            <p className='card-text'>$ {producto.precio} </p><Link to={`/producto/${producto._id}`} id="view_btn" className='btn btn-block'>
+                                                Ver detalle
+                                            </Link>
+                                        </div>
                                     </div>
-                                    <span id="No_de_opiniones"> 5 reviews</span>
                                 </div>
-                                <p className='card-text'>$6'780.500</p><a href='http://localhost:3000' id="view_btn" className='btn btn-block'>
-                                    Ver detalle
-                                </a>
-                            </div>
+                            ))}
+
                         </div>
-                    </div>
+                    </section>
+                </Fragment>
 
-                    {/*Producto 2*/}
-                    <div className='col-sm-12 col-md-6 col-lg-3 my-3'>
-                        <div className='card p-3 rounded'>
-                            <img className='card-img-top mx-auto' src='./images/camara.jpg' alt="Camara Canon Ipx543"></img>
-                            <div className='card-body d-flex flex-column'>
-                                <h5 id="titulo_producto"><a href='http://localhost:3000'>Camara Canon Ipx543</a></h5>
-                                <div className='rating mt-auto'>
-                                    <div className='rating-outer'>
-                                        <div className='rating-inner'></div>
-                                    </div>
-                                    <span id="No_de_opiniones"> 2 reviews</span>
-                                </div>
-                                <p className='card-text'>$2'350.000</p><a href='http://localhost:3000' id="view_btn" className='btn btn-block'>
-                                    Ver detalle
-                                </a>
-                            </div>
-                        </div>
-                    </div>
+            )}
 
-                    {/*Producto 3*/}
-                    <div className='col-sm-12 col-md-6 col-lg-3 my-3'>
-                        <div className='card p-3 rounded'>
-                            <img className='card-img-top mx-auto' src='./images/computador.png' alt="MSI Gaming Performance xtya"></img>
-                            <div className='card-body d-flex flex-column'>
-                                <h5 id="titulo_producto"><a href='http://localhost:3000'>MSI Gaming Performance xtya</a></h5>
-                                <div className='rating mt-auto'>
-                                    <div className='rating-outer'>
-                                        <div className='rating-inner'></div>
-                                    </div>
-                                    <span id="No_de_opiniones"> 12 reviews</span>
-                                </div>
-                                <p className='card-text'>$6'493.400</p><a href='http://localhost:3000' id="view_btn" className='btn btn-block'>
-                                    Ver detalle
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-
-                    {/*Producto 4*/}
-                    <div className='col-sm-12 col-md-6 col-lg-3 my-3'>
-                        <div className='card p-3 rounded'>
-                            <img className='card-img-top mx-auto' src='./images/Televisor.png' alt="TV LG 70' QH FH 28756"></img>
-                            <div className='card-body d-flex flex-column'>
-                                <h5 id="titulo_producto"><a href='http://localhost:3000'>TV LG 70' QH FH 28756</a></h5>
-                                <div className='rating mt-auto'>
-                                    <div className='rating-outer'>
-                                        <div className='rating-inner'></div>
-                                    </div>
-                                    <span id="No_de_opiniones"> 7 reviews</span>
-                                </div>
-                                <p className='card-text'>$3'899.900</p><a href='http://localhost:3000' id="view_btn" className='btn btn-block'>
-                                    Ver detalle
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-
-
-                </div>
-            </section>
 
         </Fragment>
     )

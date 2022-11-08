@@ -1,4 +1,5 @@
 import React, { Fragment } from 'react'
+import { Link } from 'react-router-dom'
 
 const header = () => {
   return (
@@ -6,7 +7,7 @@ const header = () => {
         <nav className='navbar row'>
             <div className='col-12 col-md-3'>
                 <div className='navbar-brand'>
-                    <img src='./images/BaqueroSystem.png' alt='BaqueroSystem Store'></img>
+                    <Link to={"/"} > <img src='./images/BaqueroSystem.png' alt='BaqueroSystem Store'></img></Link>
                 </div>
             </div>
             <div className='col-12 col-md-6 mt-2 mt-md-0'>
