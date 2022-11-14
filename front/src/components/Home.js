@@ -3,11 +3,10 @@ import MetaData from './layout/MetaData'
 import { useDispatch, useSelector } from 'react-redux'
 import { getProducts } from '../actions/productActions'
 import { Link } from 'react-router-dom'
-//import { useAlert } from 'react-alert'
-
+// import { useAlert } from 'react-alert'
 
 export const Home = () => {
-    const { loading, productos, error} = useSelector(state => state.products)
+    const { loading, productos} = useSelector(state => state.products)
 //    const alert = useAlert();
 
 
