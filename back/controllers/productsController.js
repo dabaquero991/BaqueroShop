@@ -30,11 +30,21 @@ exports.getProducts = catchAsyncErrors(async (req, res, next) => {
 })
 
 // Ver producto por ID
+<<<<<<< HEAD
 exports.getProductById = catchAsyncErrors(async (req, res, next) => {
     const product = await producto.findById(req.params.id)
 
     if (!product) {
         return next(new ErrorHandler("Producto no encontrado", 404))
+=======
+exports.getProductById= async(req, res, next)=>{
+    const product= await producto.findById(req.params.id)
+    if (!product){
+        return res.status(404).json({
+            success: false,
+            message: "Producto no encontrado"
+        })
+>>>>>>> parent of dae7e33 (Clase21/10/22 Details)
     }
 
     res.status(200).json({

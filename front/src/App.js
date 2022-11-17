@@ -3,7 +3,6 @@ import React from 'react'
 import Header from './components/layout/Header'
 import { Footer } from './components/layout/Footer';
 import { Home } from './components/Home';
-import { ProductDetails } from './components/products/ProductDetails';
 // Router traido de react-router-dom (no confundirlo con express)
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
@@ -11,16 +10,15 @@ function App() {
   return (
     <Router>
       <div className="App">
-        <Header />
+        <Header/>
         <div className='container container-fluid'>
           <Routes>
-            <Route path='/' element={<Home />} />
-            <Route path='/Home' element={<Home />} />
-            <Route path='/producto/:id' element={<ProductDetails />} />
+            <Route path='/' element={<Home/>}/>
+            <Route path='/Home' element={<Home/>}/>
           </Routes>
         </div>
-        <Footer />
-      </div>
+        <Footer/>
+    </div>
     </Router>
   );
 }
