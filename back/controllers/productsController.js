@@ -16,6 +16,7 @@ exports.getProducts=async (req,res,next) =>{
 // Ver producto por ID
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 exports.getProductById = catchAsyncErrors(async (req, res, next) => {
     const product = await producto.findById(req.params.id)
 
@@ -24,15 +25,23 @@ exports.getProductById = catchAsyncErrors(async (req, res, next) => {
 =======
 =======
 >>>>>>> parent of 66a47f4 (27/10/22 Clase usuarios)
+=======
+>>>>>>> parent of 66a47f4 (27/10/22 Clase usuarios)
 exports.getProductById= async(req, res, next)=>{
     const product= await producto.findById(req.params.id)
     if (!product){
         return res.status(404).json({
             success: false,
 <<<<<<< HEAD
+<<<<<<< HEAD
             message: "Producto no encontrado"
         })
 >>>>>>> parent of dae7e33 (Clase21/10/22 Details)
+=======
+            message: "Producto no encontrado",
+            error:true
+        })
+>>>>>>> parent of 66a47f4 (27/10/22 Clase usuarios)
 =======
             message: "Producto no encontrado",
             error:true
