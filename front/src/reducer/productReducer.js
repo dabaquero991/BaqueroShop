@@ -1,11 +1,17 @@
 import { ALL_PRODUCTS_REQUEST, 
 <<<<<<< HEAD
+<<<<<<< HEAD
     ALL_PRODUCTS_SUCCESS, 
 =======
+=======
+>>>>>>> parent of 48c3608 (Clase 25/10/22 Detalles Product)
     ALL_PRODUCTS_SUCCESS,
     PRODUCT_DETAILS_REQUEST,
     PRODUCT_DETAILS_SUCCESS,
     PRODUCT_DETAILS_FAIL,
+<<<<<<< HEAD
+>>>>>>> parent of 48c3608 (Clase 25/10/22 Detalles Product)
+=======
 >>>>>>> parent of 48c3608 (Clase 25/10/22 Detalles Product)
     ALL_PRODUCTS_FAIL,CLEAR_ERRORS } from "../constants/productConstants";
 
@@ -41,7 +47,10 @@ import { ALL_PRODUCTS_REQUEST,
                 
         }
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> parent of 48c3608 (Clase 25/10/22 Detalles Product)
     }
 
     // REDUCERS PARA DETALLES
@@ -75,5 +84,8 @@ import { ALL_PRODUCTS_REQUEST,
                 
                 
         }
+<<<<<<< HEAD
+>>>>>>> parent of 48c3608 (Clase 25/10/22 Detalles Product)
+=======
 >>>>>>> parent of 48c3608 (Clase 25/10/22 Detalles Product)
     }
